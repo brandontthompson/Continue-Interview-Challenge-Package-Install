@@ -47,8 +47,6 @@ async function downloadToNodeModules(
     }, nodeModulesPath);
   }
 
-  console.log(targetPath);
-
   const tarballPath = path.join(
     targetPath,
     `${dep.name.replace("@", "%40").replace("/", "%2F")}-${dep.version}.tgz`
@@ -97,7 +95,6 @@ async function downloadToNodeModules(
   // Move to target directory
   const extracted = path.join(targetPath, "package");
   const destPath = path.join(targetPath, dep.name);
-  console.log(destPath);
   fs.renameSync(extracted, destPath);
 }
 
